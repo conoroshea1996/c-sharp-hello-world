@@ -1,31 +1,41 @@
 ﻿using System;
 
 
-namespace HelloWorld
+namespace NumberGuesser
 {
     class Program
-    {
+    {   
         static void Main(string[] args)
         {
-            var number = 2;
-            int count = 4;
-            var totalPrice = 20.45f;
-            var character = 'B';
-            string firtname = "Mosh";
-            bool works = false;
+            Console.WriteLine("Hello What is your name?");
 
+            string username = Console.ReadLine();
 
-            Console.WriteLine(number);
+            Console.WriteLine("HELLO {0} let's play a game",username);
 
-            Console.WriteLine(count);
-            Console.WriteLine(totalPrice);
-            Console.WriteLine(character);
-            Console.WriteLine(firtname);
-            Console.WriteLine(works);
+            int correctNumber = 8;
+            int guess = 0;
 
+            Console.WriteLine("Guess a number between 1 and 10");
+            
+            while (guess != correctNumber)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                // Get user input
+                string userGuess = Console.ReadLine();
 
-            Console.WriteLine("{0} {1} ", byte.MinValue,byte.MaxValue);
-            Console.WriteLine("{0} {1}", float.MinValue , float.MaxValue);
+                // cast to int and put in guess
+                guess = Int32.Parse(userGuess);
+
+                if(guess == correctNumber){
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("You guessed correct heres a cookie");
+                }else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Wrong guess again");
+                }
+            }
         }
     }
 }
